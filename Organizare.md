@@ -2,7 +2,8 @@
 #### I. ANUL 1
 * SEMESTRUL 1
   - [Proiectarea algoritmilor eficienti]()
-  - [Deontologie academica]()
+  - Deontologie academica
+    - incepe pe 4 noiembrie 
   - [Analiza si modelarea sistemelor software]()
   - Managementul si organizarea proiectelor software
     - Curs lunea 8.00-10.00 online din noiembrie
