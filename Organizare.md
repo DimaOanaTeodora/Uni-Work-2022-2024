@@ -2,7 +2,8 @@
 #### I. ANUL 1
 * SEMESTRUL 1
   - [Proiectarea algoritmilor eficienti ()]()
-  - [Tehnici avansate de programare ()]()
+  - [Deontologie academica]()
+  - [Analiza si modelarea sistemelor software]()
   - Managementul si organizarea proiectelor software
     - Curs lunea 8.00-10.00 online din noiembrie
     - Laborator lunea sapt para/impara de la 10.00-12.00 sau lunea sapt impara de la 12.00-14.00 
