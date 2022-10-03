@@ -1,7 +1,7 @@
 
 #### I. ANUL 1
 * SEMESTRUL 1
-  - [Proiectarea algoritmilor eficienti ()]()
+  - [Proiectarea algoritmilor eficienti]()
   - [Deontologie academica]()
   - [Analiza si modelarea sistemelor software]()
   - Managementul si organizarea proiectelor software
@@ -13,4 +13,4 @@
       - 30% proiect 2 in sapt 13-14
       - o singura echipa de 4-5
       - vezi cele 2 foi cu cerinte + lista cu tematici pt prezentare 
-  - [Curs optional ()]()
+  - [Curs optional]()
