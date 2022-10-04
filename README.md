@@ -1,9 +1,8 @@
 # FMI 2022-2024
 ## :books: Materiale de studiu din cadrul masterului de Inginerie Software
+#### Repo dedicat masteranzilor Facultății de Matematică și Informatică, Universitatea din București 
 
 [Structura mastere informatica FMI UB - Oct 2022](https://docs.google.com/document/d/1qFiEJtW88s9dc7_7GW5M2TjDkGsW7QlM/edit)
-
-### Repo dedicat masteranzilor Facultății de Matematică și Informatică, Universitatea din București 
 
 #### I. ANUL 1
 * SEMESTRUL 1
