@@ -6,9 +6,10 @@
     - incepe pe 4 noiembrie 
     - doar curs
   - Analiza si modelarea sistemelor software
-    - Curs: marti de la 16.00
-    - Laborator: marti de la 6 (sapt para/impara) 
+    - Curs: marti de la 16.00-18.00
+    - Laborator: marti de la 18.00-20.00 (sapt para/impara) 
       - primul lab (sapt 1) nu s-a facut materie
+    - Proiect echipa de 3
   - Managementul si organizarea proiectelor software
     - Online din noiembrie: curs lunea 8.00-10.00 
     - Online din noiembrie: laborator lunea sapt para/impara de la 10.00-12.00 sau lunea sapt impara de la 12.00-14.00 
