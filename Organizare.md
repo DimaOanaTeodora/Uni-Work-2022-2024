@@ -6,7 +6,7 @@
     - incepe pe 4 noiembrie 
   - [Analiza si modelarea sistemelor software]()
   - Managementul si organizarea proiectelor software
-    - Online din noiembrie: curs lunea 8.00-10.00 online din noiembrie
+    - Online din noiembrie: curs lunea 8.00-10.00 
     - Online din noiembrie: laborator lunea sapt para/impara de la 10.00-12.00 sau lunea sapt impara de la 12.00-14.00 
     - Notare: 2 proiecte + prezentare ppt
       - 30% prezentare in sapt 5-10
