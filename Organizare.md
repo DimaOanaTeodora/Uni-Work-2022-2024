@@ -1,7 +1,10 @@
 
 #### I. ANUL 1
 * SEMESTRUL 1
-  - [Proiectarea algoritmilor eficienti]()
+  - Proiectarea algoritmilor eficienti
+    - Proiect (rezumat + prezentare) individual 5p - art. stiintific de la prof 
+    - Examen 5p (1pct din oficiu) - fara prag
+    - Promovare examen + proiect >=5 
   - Deontologie academica
     - incepe pe 4 noiembrie 
     - doar curs
