@@ -28,7 +28,7 @@
     - curs fizic
     - materiale [aici]()
     - Examen (obligatoriu cu prezenta!): 4p, fara prag, implementare aplicatie Spring cu materiale, 2h
-    - Lab 5p = 1p prezenta + 4p proiect individual
+    - Lab 5p = 1p prezenta (la toate laboratoarele, ne alegem o singura semigrupa) + 4p proiect individual
       - laboratoarele incep din sapt 2
       - lab 2 fizic(marti)/1 online(vineri)/1 mixt
     - oficiu: 1p
