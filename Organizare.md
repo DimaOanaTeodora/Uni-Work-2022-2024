@@ -14,9 +14,10 @@
     - Online din noiembrie: curs lunea 8.00-10.00 
     - Online din noiembrie: laborator lunea sapt para/impara de la 10.00-12.00 sau lunea sapt impara de la 12.00-14.00 
     - Notare: 2 proiecte + prezentare ppt
-      - 30% prezentare in sapt 5-10
-      - 40% proiect 1 in sapt 10-11
-      - 30% proiect 2 in sapt 13-14
+      - 30% prezentare in sapt 5-10 - se prezinta la curs cu programare
+      - 40% proiect 1 in sapt 10-11 (se prezinta codul la lab si proiectul la curs)
+      - 30% proiect 2 in sapt 13-14 
+      - se prezinta la curs toate
       - o singura echipa de 4-5
       - vezi cele 2 foi cu cerinte + lista cu tematici pt prezentare 
   - [Curs optional]()
