@@ -23,4 +23,13 @@
       - se prezinta la curs toate
       - o singura echipa de 4-5
       - vezi cele 2 foi cu cerinte + lista cu tematici pt prezentare 
-  - [Curs optional]()
+  - Optional: Programare Web utilizand tehnologii Java
+    - 7 prezente
+    - curs fizic
+    - materiale [aici]()
+    - Examen (obligatoriu cu prezenta!): 4p, fara prag, implementare aplicatie Spring cu materiale, 2h
+    - Lab 5p = 1p prezenta + 4p proiect individual
+      - laboratoarele incep din sapt 2
+      - lab 2 fizic(marti)/1 online(vineri)/1 mixt
+    - oficiu: 1p
+    - total >= 5
