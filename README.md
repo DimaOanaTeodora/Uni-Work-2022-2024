@@ -10,7 +10,7 @@
   - [Deontologie academica ()]()
   - [Analiza si modelarea sistemelor software ()]()
   - [Managementul si organizarea proiectelor software ()]()
-  - [Optional: ()]()
+  - [Optional: Programare Web utilizand tehnologii Java(Spring Boot)]()
   - Practica industriala
 * SEMESTRUL 2
   - [Tehnici avansate de programare ()]()
