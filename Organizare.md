@@ -11,6 +11,7 @@
     - doar curs
   - Analiza si modelarea sistemelor software
     - Materiale curs [aici](https://github.com/adrian-buturuga/SoftwareSystemsModeling)  
+    - Tool UML [aici](https://yuml.me/)
     - Curs: marti 16.00-18.00
     - Laborator: marti 18.00-20.00 (sapt para/impara)
     - Notare
