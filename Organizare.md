@@ -10,15 +10,19 @@
     - incepe pe 4 noiembrie 
     - doar curs
   - Analiza si modelarea sistemelor software
-    - Curs: marti de la 16.00-18.00
-    - Laborator: marti de la 18.00-20.00 (sapt para/impara) 
-      - primul lab (sapt 1) nu s-a facut materie
-    - Proiect echipa de 3
+    - Materiale curs [aici](https://github.com/adrian-buturuga/SoftwareSystemsModeling)  
+    - Curs: marti 16.00-18.00
+    - Laborator: marti 18.00-20.00 (sapt para/impara)
+    - Notare
+      - Proiect echipa de 3
   - Managementul si organizarea proiectelor software
     - Online din noiembrie: curs lunea 8.00-10.00 
-    - Online din noiembrie: laborator lunea sapt para/impara de la 10.00-12.00 sau lunea sapt impara de la 12.00-14.00 
-    - Notare: 2 proiecte + prezentare ppt
-      - 30% prezentare in sapt 5-10 - se prezinta la curs cu programare
+    - Laborator
+      - fizic: lunea sapt para/impara de la 10.00-12.00
+      - online: lunea sapt impara de la 18.00-20.00 
+    - Notare 
+      - 2 proiecte + 1 prezentare ppt
+      - 30% prezentare ppt in sapt 5-10 - se prezinta la curs cu programare
       - 40% proiect 1 in sapt 10-11 (se prezinta codul la lab si proiectul la curs)
       - 30% proiect 2 in sapt 13-14 
       - se prezinta la curs toate
@@ -27,9 +31,16 @@
   - Optional: Programare Web utilizand tehnologii Java
     - curs fizic
     - materiale [aici]()
-    - Examen (obligatoriu cu prezenta!): 4p, fara prag, implementare aplicatie Spring cu materiale, 2h
-    - Lab 5p = 1p prezenta (7 prezente - la toate laboratoarele, ne alegem o singura semigrupa) + 4p proiect individual
-      - laboratoarele incep din sapt 2
-      - lab 2 fizic(marti)/1 online(vineri)/1 mixt
+    - Examen (obligatoriu cu prezenta!)
+      - 4p
+      - fara prag
+      - implementare aplicatie Spring cu materiale
+      - 2h
+    - Laborator
+      - 5p = 1p prezenta (7 prezente) + 4p proiect individual
+      - marti 18.00-20.00 online
+      - vineri 16.00-18.00 online
+      - vineri 16.00-18.00 hibrid
+      - marti 18-20 fizic
     - oficiu: 1p
     - total >= 5
