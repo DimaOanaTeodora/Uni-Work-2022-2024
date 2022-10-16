@@ -1,26 +1,20 @@
 
-#### I. ANUL 1
+# I. ANUL 1
 * SEMESTRUL 1
-  - Proiectarea algoritmilor eficienti
+  - ## Proiectarea algoritmilor eficienti
     - Proiect individual 5p (rezumat deadline: 1 dec + prezentare sapt de dupa) - art. stiintific de la prof 
       - De ales tema proiectului pana pe 30 oct
     - Examen 10p (1pct din oficiu) - fara prag
     - nota: min{10, (examen + proiect)} >=5 
-  - Deontologie academica
+  - ## Deontologie academica
     - incepe pe 4 noiembrie 
     - doar curs
-  - Analiza si modelarea sistemelor software
+  - ## Analiza si modelarea sistemelor software
     - Materiale curs [aici](https://github.com/adrian-buturuga/SoftwareSystemsModeling)  
     - Tool UML [aici](https://yuml.me/)
-    - Curs: marti 16.00-18.00
-    - Laborator: marti 18.00-20.00 (sapt para/impara)
     - Notare
       - Proiect echipa de 3
-  - Managementul si organizarea proiectelor software
-    - Online din noiembrie: curs lunea 8.00-10.00 
-    - Laborator
-      - fizic: lunea sapt para/impara de la 10.00-12.00
-      - online: lunea sapt impara de la 18.00-20.00 
+  - ## Managementul si organizarea proiectelor software (MOPS)
     - Notare 
       - 2 proiecte + 1 prezentare ppt
       - 30% prezentare ppt in sapt 5-10 - se prezinta la curs cu programare
@@ -29,9 +23,8 @@
       - se prezinta la curs toate
       - o singura echipa de 4-5
       - vezi cele 2 foi cu cerinte + lista cu tematici pt prezentare 
-  - Optional: Programare Web utilizand tehnologii Java
-    - curs fizic
-    - materiale [aici]()
+  - ## Optional: Programare Web utilizand tehnologii Java
+    - Materiale [aici]()
     - Examen (obligatoriu cu prezenta!)
       - 4p
       - fara prag
@@ -39,9 +32,5 @@
       - 2h
     - Laborator
       - 5p = 1p prezenta (7 prezente) + 4p proiect individual
-      - marti 18.00-20.00 online
-      - vineri 16.00-18.00 online
-      - vineri 16.00-18.00 hibrid
-      - marti 18-20 fizic
-    - oficiu: 1p
-    - total >= 5
+    - Oficiu: 1p
+    - Total >= 5
