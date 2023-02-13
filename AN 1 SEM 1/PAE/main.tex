@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{times} % Times New Roman
+
+\usepackage[romanian]{babel}
+\usepackage{setspace}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+
+\title{Algoritmi eficienți pentru sortarea și căutarea stringurilor}
+\author{Dima Oana-Teodora, IS 406}
+\date{Decembrie 2022}
+
+\begin{document}
+\maketitle
+
+\begin{singlespace} % normal space between lines
+Jon L. Bentley, Robert Sedgewick. \href{https://dl.acm.org/doi/pdf/10.5555/314161.314321}{Fast Algorithms for Sorting and Searching Strings}. 
+\par
+SODA, Ianuarie 1997
+
+\section{Context}
+Autorii acestui paper își doresc să aducă în atenția cititorilor alternative eficiente ale QuickSort-ului clasic pentru sortarea unor dicționare de șiruri de caractere. Pornind de la implementarea obișnuită folosind BST, vor dezvolta pe parcursul lucrării un set de teoreme și ipoteze privind eficacitatea abstractizării algoritmului către utilizarea TST. Acestea vor fi demonstrate și susținute printr-o serie de experimente efectuate pe inputuri diverse și în medii cu nivele de performanță diferite. 
+
+\section{QuickSort clasic: analiză, algoritmi și teoreme}
+QuickSort este un algoritm recursiv care folosește metoda Divide et Impera 
+pentru sortarea unui vector, pe baza alegerii unui pivot și permutarea elementelor în funcție de acesta. Modul de funcționare poate fi redus la structura unui BST.
+\par
+Complexitatea de timp a algoritmului poate fi influențată de modul în care este ales pivotul: drept primul/ultimul element, random sau median-of-three.
+\par
+De-a lungul timpului, mai mulți cercetători au exprimat soluții diverse pentru tratarea cazului în care există mai multe elemente egale cu pivotul. \textbf{Hoare} a propus o metodă de partiționare binară: plasarea valorilor mai mici la stânga și pe cele mai mari la dreapta, dar elementele egale pot apărea în orice parte.  
+\par
+\textbf{Dijkstra} a încercat găsirea unei soluții bazate pe un algoritm ternar în timp liniar, popularizând astfel “Problema steagului național olandez”. Soluția se bazează pe coloritul stindardului olandez: elementele mai mici sunt colorate în roșu, cele egale sunt albe, iar cele mai mari sunt albastre. Teoretic, eficiența de timp este datorată faptului că algoritmul evaluează o singură dată fiecare element, însă în practică, codul pentru a-l implementa are o constantă semnificativ mai mare ca algoritmul binar al lui Hoare.
+\par
+Ulterior, vor mai încerca și alți cercetători o \textbf{abordare ternară} asupra problemei: \textbf{Bentley și McIlroy} vor prezenta o partiționare ternară bazată pe un loop invariant contraintuitiv, iar \textbf{Wegner} va descrie și el scheme asemănătoare, dar cu un cod mult mai complex ca soluția propusă de Bentley și McIlroy.
+\par
+De asemenea, vor fi emise și demonstrate \textbf{4 teoreme} privind modurile de partiționare utilizate de QuickSort și costurile de căutare așteptate. Concluziile care reies pe baza acestora sunt evidente. Un \textbf{arbore perfect echilibrat}, cât și alegerea unei \textbf{mediane} vor reduce semnificativ costurile de căutare ale algoritmului la \(\lg n\) comparații, respectiv la \(cn \lg n + O(n)\) (timp ideal, nu worst case; \(cn\) - numărul de comparații efectuate pentru calcularea medianei).
+
+\section{Multikey QuickSort: analiză, algoritmi și teoreme}
+Multikey Quicksort sortează un set de n vectori cu k componente fiecare. Ca și în cazul unui Quicksort clasic, acesta partiționează seturile de date în seturi mai mici și mai mari decât un pivot, însă asemănător Radix Sort, trece la următorul element odată ce elementul curent este egal cu elementul ales. 
+\par
+\textbf{Hoare} nu a studiat și propus algoritmi eficienți doar pentru QuickSort-ul clasic, cât va enunța și modele de algoritmi pentru Multikey Quicksort. O implementare elegantă a acestora se bazează pe proprietățile TST. Acesta sortează o secvență s de lungime n, care are o anumită secvență de componente identice. Pivotul poate fi ales în moduri diferite, asemenea QuickSort-ului, de la calcularea unei mediane până la alegerea sa aleatorie. Fiecare nod din arbore va conține: un pivot, pointeri către descendenții mici și mari și un pointer către un descendent egal care reprezintă setul de vectori cu valori egale cu pivotul.
+\par
+Mulți cercetători au studiat modalitățile de implementare și reducere a costurilor de sortare pentru n, k vectori folosind TST. În urma studiilor efectuate, au fost emise alte \textbf{4 teoreme}. Demonstrațiile acestora includ și ipotezele teoremelor anterioare, având și concluziile asemănătoare cu acestea. Utilizarea unui \textbf{TST perfect balansat} în Multikey QuickSort, cât și calcularea unei \textbf{mediane}, crește nivelul de performanță al algoritmului prin reducerea costului de căutare, necesitând cel mult \([\lg n] + k\) (optim), respectiv cel mult \(cn(\lg n + k)\) comparații(\(cn\) - numărul de comparații efectuate pentru calcularea medianei).
+
+
+\section{Aplicații}
+Autorii acestei lucrări au ales să-și conducă experimentele și aplicațiile practice folosind limbajul C, datorită rapidității și eficienței care-l caracterizează. 
+
+\par
+Utilizarea teoremelor, cât și implementarea algoritmilor folosind structuri arborescente pot fi foarte utile atunci când avem de sortat stringuri.
+În următoarele secțiuni se va face referire la 2 tipuri de seturi de date:
+
+\begin{itemize}
+\item \textbf{S1} - un dicționar englez cu 72 275 cuvinte și 696 436 caractere. 
+\item \textbf{S2} - un set de chei unice (aproximativ 86 000 extrase din fiecare fișier), reprezentând numere de card și având o lungime medie de 22,5 de caractere (DIMACS library call numbers).
+\end{itemize}
+
+\par
+Dar și un set de mașini pe care se vor rula testele:
+
+\begin{itemize}
+\item \textbf{M1} - MIPS R4400(150MHz), MIPS R4000(100MHz), Pentium(90MHz) și 486DX(33MHz).
+\end{itemize}
+
+\subsection{Sortarea unui vector de stringuri fără TST}
+Multikey QuickSort este utilizat pentru ordonarea lexicografică a unui vector x de n pointeri la șiruri de caractere, prin \textbf{descompunerea ternară recursivă}, aplicată caracter cu caracter și fără utilizarea TST. Astfel, modalitatea de funcționare a acestui program va fi bazată pe QuickSort-ul clasic, cu alegerea unui pivot aleatoriu. 
+\par
+ Sortarea va fi implementată sub forma unui \textbf{simple qsort} folosind 2 funcții auxiliare: una care mută secvențe de elemente egale din pozițiile lor temporare de la sfârșitul vectorului înapoi la locul lor corespunzător din mijloc, iar cealaltă va transforma un “întreg în caracter” de pe poziția curentă. După fiecare partiționare sortăm recursiv secvențele de elemente mai mici, mai mari și pe cele egale până la sfârșitul șirurilor.
+ \par
+Au fost desfășurate 2 experimente distincte prin care se evaluează \textbf{numărul de secunde} necesare sortării pe M1 și utilizând algoritmii: system qsort, simple qsort, tuned sort și highly tuned radix sort a lui Bostic și McIlroy(cel mai rapid cunoscut).
+\par
+\underline{Primul experiment} presupune aplicarea tuturor algoritmilor menționați pentru sortarea S1. În urma analizei rezultatelor, \textbf{simple qsort} este mai rapid ca system qsort, dar nu mai rapid ca tuned sort și radix sort, însă tuned sort e doar cu câteva procente mai lent ca radix sort.
+\par
+\underline{Al doilea experiment} presupune aplicarea tuturor algoritmilor menționați pentru sortarea S2. În urma analizei rezultatelor, \textbf{tuned sort} s-ar putea dovedi mai rapid decât radix sort și în alte contexte, acesta fiind cu 20\% mai rapid pe mașinile MIPS.
+
+\subsection{Sortarea unui vector de stringuri folosind TST}
+Multikey QuickSort este folosit pentru ordonarea lexicografică a unui vector x de n pointeri la șiruri de caractere \textbf{prin utilizarea TST}. Această alegere va duce la implementarea unui model de tipul \textbf{string symbol table}, fiind o alternativa viabilă la hash tables.
+\par
+\underline{Al treilea experiment} prezentat presupune testarea performanței pe S1 prin raportarea la \textbf{numărul mediu de ramuri} parcurse în toate căutările de succes. Concluziile trase expun diferențele dintre inputuri și dau naștere unei noi teoreme: numărul de noduri dintr-un TST este constant și independent de ordinea în care nodurile sunt inserate. 
+\par
+Într-un \textbf{TST perfect balansat} vor fi cele mai puține ramuri formate, iar timpul este la jumătate față de worst-case-ul așteptat. În timp ce folosirea unui tournament tree utilizează cu 80\% mai multe comparații ca în arborii echilibrați, iar în random tree cu 50\% mai multe comparații.
+\par
+\underline{Al patrulea experiment} are ca scop diferențierea dintre TST și symbol tables structures pe S1 și S2. Pentru măsurarea performanței ne vom raporta la \textbf{numărul de secunde} pentru căutări cu succes și eșuate. Rezultatele arată că \textbf{TST sunt mai rapizi pentru căutările eșuate}, deoarece pot descoperi nepotriviri după câteva examinări ale caracterelor, în timp ce hashing-ul are nevoie de procesarea întregului șir. Pentru chei lungi avantajul este și mai semnificativ(pe S2 a luat mai puțin cu 1/5 din timpul de hash).
+\par
+Deși din punct de vedere al eficienței de timp, TST și-a demonstrat eficacitatea în fața symbol tables, însă din punctul de vedere al \textbf{memoriei utilizate} pierde considerabil în fața acestora. Pentru S1, TST folosește 4.573 MB, iar hashing-ul 1.564 MB. Există și o reprezentarea alternativă care salvează spațiu pentru TST: când un subarbore conține un singur string, stocăm un singur pointer la șirul respectiv (la fiecare nod se stochează 3 biți care spun dacă descendenții săi indică noduri sau șiruri), rezultând astfel un cod mai lent și mai complex, dar reducând spațiul utilizat la o valoare apropiată de cel folosit de hashing.
+
+\subsection{Partial-match searching folosind TST}
+Problema partial-match searching presupune căutarea într-un dicționar(aici vector n,k) a unui șir s, după un anumit pattern (ex: “.o.o.o”), unde punctul este denumit ca fiind un caracter “don’t care”. 
+\par
+Cercetătorul \textbf{Rivest} a propus un model pentru partial-matching, care va fi implementat și testat folosind TST. Dacă o literă este specificată, se evaluează pe rând câte o singură ramură dată, iar pentru un caracter “don’t care” se caută recursiv pe toate ramurile.
+\par
+La fel ca la probleme anterioare, și aici au fost desfășurate mai multe experimente pentru evaluarea performanței. Au fost folosite datele din S1, dar și un set de date aleatoriu. Rezultatele obținute sunt surprinzătoare: nespecificarea pozițiilor la începutul cuvântului este mult mai costisitoare ca nespecificarea pozițiilor la sfârșitul acestuia(dacă începe sau se termină cu un caracter “don’t care”). Explicația ar fi că, la începutul cuvintelor numărul de ramuri este mai mare decât la sfârșitul lor.
+
+\subsection{Nearest neighbor searching folosind TST}
+Problema “nearest neighbor searching” presupune găsirea cuvintelor dintr-un dicționar(aici vector n,k) care sunt apropiate într-o \textbf{distanță Hamming} de cuvântul dat (exemplu bazat pe S1: pentru d=2 și cuvântul “soda” ar fi “code”, “coma” și alte 117 cuvinte). Pentru studiul performanței și această problemă va fi implementată folosind TST, unde vor fi date ca input un arbore, un string și o distanță. 
+\par
+Concluziile rezultate în urma efectuării unei serii de experimente pe această implementare sunt influențate de valorile distanțelor (de la 0 la 4). Aceste experimente au arătat că, căutarea \textbf{vecinilor apropiați} este relativ eficientă, iar căutarea pentru vecinii îndepărtați devine mai scumpă.
+
+\section{Concluzii}
+Ideile care stau la baza Multikey QuickSort implementat folosind TST au ca rezultate \textbf{algoritmi eficienți}. Acest tip de arbori sunt preferați deoarece combină 2 lumi: low overhead al BST (în ceea ce privește spațiul și timpul de rulare) și eficiența character-based a căutărilor.
+\par
+De asemenea, este de menționat și faptul că aplicabilitatea acestora în viața reală este subestimată de cele mai multe ori. Ei sunt utilizați în reprezentarea dicționarelor engleze în sistemul OCR(Optical Character Recognition), deoarece \textbf{sunt mai rapizi decât hashing-ul}, permițând gestionarea unor seturi de zeci de mii de caractere Unicode Standard și pot răspunde eficient la multe tipuri de interogări care ar necesita timp liniar într-un tabel hash. Astfel, TST pot concura cu cel mai bun symbol table cunoscut.
+
+\section{Terminologie și abrevieri utilizate}
+\begin{itemize}
+
+\item BST - binary search tree - arbore în care fiecare nod are maxim 2 descendenți. Toate nodurile din subarborele stâng sunt mai mici ca rădăcina și toate nodurile din subarborele drept sunt mai mari ca rădăcina, iar fiecare subarbore este la rândul său BST. 
+\item TST - ternary search tree - arbore în care fiecare nod are maxim 3 descendenți fiecare fiind ordonat sub forma unui BST. Un nod este reprezentat ca un subset de vectori având o valoare de partiționare și trei indicatori: unul către elemente mai mici, unul către cele mai mari și unul către elemente egale.
+\item median-of-three (a unui vector)  -  elementul din mijloc din sortarea în ordine crescătoare a primului, ultimului și elementului din mijloc a unui vector.
+\item pivot (al unui vector) - elementul de referință atunci când se fac niște permutări cu scopul obținerii unui array/subarray sortat.
+\item arbore perfect echilibrat (balanced) - arbori în care valoarea fiecărui nod este mediana setului de elemente dintr-o dimensiunea dată.
+\item Radix sort - algoritm de sortare a numerelor pe baza grupării individuale a cifrelor aflate pe aceleași poziții.
+\item performance tuning - tehnici utilizate pentru îmbunătățirea eficienței cum ar fi: sortarea subvectorilor mici cu insertion sort, calcularea medianelor, specifice limbajului utilizat (C- înlocuirea indicilor vectorilor cu pointeri), salvarea diferenței dintre elementele comparate, reordonarea testelor, utilizarea regiștrilor. Pot crește cu până la 10\% eficiența unui program.
+\item tournament tree - TST în care inputul este sortat începând prin inserarea de pe nodul din mijloc, apoi pe cel stâng și drept. 
+\item string symbol table - hash table de mărimea n folosit pentru reprezentarea a n stringuri.
+\item  distanța Hamming - numărul de poziții ale căror simboluri corespunzătoare sunt diferite între două șiruri de lungime egală 
+\end{itemize}
+
+\end{singlespace}
+\end{document}
