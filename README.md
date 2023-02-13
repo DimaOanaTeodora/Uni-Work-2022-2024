@@ -6,17 +6,17 @@
 
 #### I. ANUL 1
 * SEMESTRUL 1
-  - [Proiectarea algoritmilor eficienti ()]()
-  - [Deontologie academica ()]()
-  - [Analiza si modelarea sistemelor software ()]()
-  - [Managementul si organizarea proiectelor software ()]()
-  - [Optional: Programare Web utilizand tehnologii Java(Spring Boot)]()
+  - [Proiectarea algoritmilor eficienti](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%201%20SEM%201/PAE)
+  - [Deontologie academica](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%201%20SEM%201/DA)
+  - Analiza si modelarea sistemelor software
+  - [Managementul si organizarea proiectelor software](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%201%20SEM%201/MOPS)
+  - [Optional: Programare Web utilizand tehnologii Java(Spring Boot)](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%201%20SEM%201/PJ)
   - Practica industriala
 * SEMESTRUL 2
   - [Tehnici avansate de programare ()]()
   - [Arhitectura sistemelor software ()]()
   - [Experienta de utilizare si interactiunea cu utilizatorul - UX/UI ()]()
-  - [Optional: ()]()
+  - [Aplicatii web pentru baze de date ()]()
   - Practica industriala
 #### II. ANUL 2
 * SEMESTRUL 1
