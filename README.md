@@ -13,10 +13,10 @@
   - [Optional: Programare Web utilizand tehnologii Java(Spring Boot)](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%201%20SEM%201/PJ)
   - Practica industriala
 * SEMESTRUL 2
-  - [Tehnici avansate de programare ()]()
-  - [Arhitectura sistemelor software ()]()
-  - [Experienta de utilizare si interactiunea cu utilizatorul - UX/UI ()]()
-  - [Aplicatii web pentru baze de date ()]()
+  - [Tehnici avansate de programare]()
+  - [Arhitectura sistemelor software]()
+  - [Experienta de utilizare si interactiunea cu utilizatorul - UX/UI]()
+  - [Aplicatii web pentru baze de date(Spring Boot, Docker, Thymeleaf)]()
   - Practica industriala
 #### II. ANUL 2
 * SEMESTRUL 1
