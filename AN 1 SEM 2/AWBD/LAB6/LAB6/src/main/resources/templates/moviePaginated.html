@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies List</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/6.2.0/css/all.min.css"/>
+    <script src="/webjars/font-awesome/6.2.0/js/all.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <h1>Movies</h1>
+    <p>movies mongodb collection.</p>
+</div>
+
+<div class="container">
+
+
+<table class="table table-hover ">
+    <thead class="thead-inverse">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Released</th>
+        <th>Rating</th>
+        <th>Info</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+
+    <tr th:each="movie : ${moviePage.content}">
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.released}"></td>
+        <td th:text="${movie.imdb.rating}"></td>
+        <td><a href="#" th:href="@{'/movie/info/' + ${movie.id}}"><i class="fa-solid fa-circle-info"></i></a></td>
+        <td><a href="#" th:href="@{'/movie/delete/' + ${movie.id}}"><i class="fa-solid fa-trash"></i></a></td>
+
+    </tr>
+</table>
+    <nav th:if="${moviePage.totalPages > 0}" aria-label="Page navigation example">
+        <ul  class="pagination">
+
+            <li class="page-item">
+                <a th:if="${moviePage.number > 0}"
+                   th:href="@{/movies(size=${moviePage.size}, page=${moviePage.number})}"
+                   class="page-link" >
+                Previous
+            </a></li>
+            <li th:each="pageNumber : ${#numbers.sequence(1,T(java.lang.Math).min(7,moviePage.totalPages))}"
+                th:class="${pageNumber==moviePage.number + 1} ? 'page-item active':   'page-item'">
+                <a class="page-link"
+                   th:text="${pageNumber}"
+                   th:href="@{/movies(size=${moviePage.size}, page=${pageNumber})}">
+                    1
+                </a></li>
+            <li
+                th:class="${moviePage.number>6} ? 'page-item active':  'page-item'"
+                th:if="${moviePage.totalPages > 6}"><a class="page-link" href="#">...</a></li>
+
+            <li th:if="${moviePage.number < moviePage.totalPages}" class="page-item">
+                <a th:if="${moviePage.number < moviePage.totalPages}"
+                   th:href="@{/movies(size=${moviePage.size}, page=${moviePage.number+2})}"
+                        class="page-link" >
+                    Next
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+<!--
+<a href="#" th:href="@{'/movie/form'}">
+    <button class="btn btn-primary">New</button>
+</a>-->
+    </div>
+</body>
+</html>

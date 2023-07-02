@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title" th:text="${movie.title}">Title</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Comments:</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <ul>
+                                    <li th:remove="all">comment1</li>
+                                    <li th:remove="all">comment2</li>
+                                    <li th:each="comment : ${movie.comments}" th:text="${comment.getText()}">comment</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h1 class="panel-title" >Cast</h1>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#" role="button" th:href="@{'/movie/' + ${movie.id} + '/cast'}">Detalii</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li th:remove="all">1</li>
+                                    <li th:remove="all">2</li>
+                                    <li th:each="cast : ${movie.cast}"
+                                        th:text="${cast}">1</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Plot</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p th:text="${movie.plot}">info</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

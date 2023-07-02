@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/6.2.0/css/all.min.css"/>
+    <script src="/webjars/font-awesome/6.2.0/js/all.min.js"></script>
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-home mx-1"></i>  </a>
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-user mx-1"></i>  </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto topnav">
+
+                    <li class="nav-item" active>
+                        <a class="nav-link" th:href="@{'/products'}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/products/form'}" >&emsp;Sell&emsp;</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" href="#" >Sign In</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/participant/form'}" >Register</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </nav>
+    </div>
+</head>
+<body>
+<form enctype="multipart/form-data" method="post" th:action="@{/products}" th:object="${product}">
+    <input th:field="*{id}" type="hidden"/>
+    <input th:field="*{info.id}" type="hidden"/>
+    <input th:field="*{info.photo}" type="hidden"/>
+    <input th:field="*{info.product}" type="hidden"/>
+    <div class="container" style="margin-top: 50px">
+        <div class="panel panel-default">
+           <div  class="panel-heading">
+                <h3> </h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-md-2 ">
+                        <label th:for="categories">Categories</label>
+                        <ul id="categories" style="list-style: none;">
+                            <li th:each="category: ${categoriesAll}">
+                                <input th:field="*{categories}"
+                                       th:value="${category.id}"
+                                       type="checkbox"/>
+                                <label
+                                        th:for="${#ids.prev('categories')}"
+                                        th:text="${category.name}">
+                                </label>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-5 ">
+                        <div class="form-row">
+                            <input class="form-control" th:field="*{name}" type="text" placeholder="product name"/>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <input class="form-control" th:field="*{code}" type="text" placeholder="product code"/>
+                        </div>
+                        <br>
+                        <div class="form-row">
+
+                            <input class="form-control" th:field="*{reservePrice}" type="number" placeholder="reserve price"/>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <textarea class="form-control" th:field="*{info.description}" placeholder="description" />
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="currency">Currency: </label>
+                                <select id="currency" name="currency" th:field="*{currency}">
+                                    <option
+                                            th:each="currencyOpt:${T(com.awbd.lab4.domain.Currency).values()}"
+                                            th:value="${currencyOpt}" th:text="${currencyOpt.getDescription()}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label th:for="restored">Restored</label>
+                                <input th:field="*{restored}" type="checkbox"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 ">
+                        <i class="fa-solid fa-image"></i>
+                        <input class="file" accept="image/*"  id="imagefile" name="imagefile" type="file"
+
+                               onchange="document.getElementById('pic').src = window.URL.createObjectURL(this.files[0])">
+                        <br>
+
+
+                        <img id="pic" th:src="@{'/products/getimage/' + *{id}}" width="200" height="200" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 ml-md-auto">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

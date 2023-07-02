@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/6.2.0/css/all.min.css"/>
+    <script src="/webjars/font-awesome/6.2.0/js/all.min.js"></script>
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-home mx-1"></i>  </a>
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-user mx-1"></i>  </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto topnav">
+
+                    <li class="nav-item" active>
+                        <a class="nav-link" th:href="@{'/products'}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/products/form'}" >&emsp;Sell&emsp;</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" href="#" >Sign In</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/participant/form'}" >Register</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </nav>
+    </div>
+</head>
+<body>
+<div class="container " style="margin-top: 50px">
+    <div class="row align-self-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" >
+                        <h1 class="panel-title" th:text="${product.name}">Product</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Category:</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li th:each="category:${product.categories}" th:text="${category.getName()}">
+                                        category 3
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <label th:for="restored">Restored</label>
+                                <input type="checkbox" th:field="${product.restored}" />
+                            </div>
+
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"> <img th:src="@{'/products/getimage/' + ${product.id}}" width="200" height="200"> </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p>code:</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${product.code != null ?(product.code):'code'}">code</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p5>reserved price:</p5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${product.reservePrice != null ? product.reservePrice:' '}">
+                                    price
+                                </p>
+                            </div>
+                            <div class="col-md-1">
+                                <div th:if="${product.currency == T(com.awbd.lab4.domain.Currency).EUR}">
+                                    &euro;
+                                </div>
+
+                                <div th:if="${product.currency == T(com.awbd.lab4.domain.Currency).USD}">
+                                    &dollar;
+                                </div>
+
+                                <div th:if="${product.currency == T(com.awbd.lab4.domain.Currency).GBP}">
+                                    &pound;
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel panel-primary">
+            <!--    <div class="panel-heading" >
+                    <h1 class="panel-title">Info</h1>
+                </div>-->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p th:text="${product.info != null ? product.info.description:''}">
+                                Info
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/6.2.0/css/all.min.css"/>
+    <script src="/webjars/font-awesome/6.2.0/js/all.min.js"></script>
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-home mx-1"></i>  </a>
+            <a class="nav-link" th:href="@{'/auction'}"> <i class="fas fa-user mx-1"></i>  </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto topnav">
+
+                    <li class="nav-item" active>
+                        <a class="nav-link" th:href="@{'/products'}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/products/form'}" >&emsp;Sell&emsp;</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" href="#" >Sign In</a>
+                    </li>&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" type="button" th:href="@{'/participant/form'}" >Register</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </nav>
+    </div>
+</head>
+<body>
+<div class="container" style="margin-top: 50px">
+    <table class="table table-hover ">
+        <thead class="thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Reserve price</th>
+            <th>Best offer</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tr th:each="product, stat : ${products}"
+            th:class="${stat.odd}? 'table-light':'table-dark'">
+            <td th:text="${product.id}">1</td>
+            <td th:text="${product.name}">Product 1</td>
+            <td th:text="${product.code}">Code</td>
+            <td th:text="${product.reservePrice}">Reserved price</td>
+            <td th:text="${product.reservePrice}">Best offer</td>
+            <td><a href="#" th:href="@{'/products/' + ${product.id}}"><i class="fa-solid fa-circle-info"></i></a></td>
+            <td><a href="#" th:href="@{'/products/edit/' + ${product.id}}"><i class="fa-solid fa-pen"></i></a></td>
+            <td><a href="#" th:href="@{'/products/delete/' + ${product.id}}"><i class="fa-solid fa-trash"></i></a></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
