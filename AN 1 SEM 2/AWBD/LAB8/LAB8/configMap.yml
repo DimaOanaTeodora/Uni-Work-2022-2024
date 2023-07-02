@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: awbd-configmap
+data:
+  SPRING_PROFILES_ACTIVE: prod
+  SPRING_CONFIG_PROFILES_ACTIVE: native
+  SPRING_CONFIG_IMPORT: optional:configserver:http://configserver-service:8070/
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver-service:8761/eureka/
+
+
