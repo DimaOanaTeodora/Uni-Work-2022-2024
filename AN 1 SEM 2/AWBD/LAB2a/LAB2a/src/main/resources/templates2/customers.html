@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+<h1>Customers 2!!</h1>
+
+<table>
+    <thead >
+    <tr>
+        <th>ID</th>
+        <th>Nume</th>
+        <th>Prenume</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}">1</td>
+        <td th:text="${customer.firstName}">first name</td>
+        <td th:text="${customer.lastName}">last name</td>
+        <td th:text="${customer.email}">email</td>
+    </tr>
+</table>
+</body>
+</html>
