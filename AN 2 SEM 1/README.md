@@ -8,9 +8,12 @@
 # Cloud computing (optional de la SD)
 1. Laborator: proiect in ultimele 2 sapt
 2. Laborator: Poate fi pe echipe max 3 studenti (verifica pe Github ce a facut fiecare)
+3. Echipa cu Alex D
 
 # Topici specIale in IS 1
+1. Referat
+2. Echipa cu Alex V. 
 
 # Testarea Sistemelor Software 
 1. Proiect laborator individual
-2. Proiect grup curs (Alex)
+2. Proiect grup curs (Alex D.)
