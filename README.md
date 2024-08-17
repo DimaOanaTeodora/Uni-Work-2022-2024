@@ -21,7 +21,7 @@
 #### II. ANUL 2
 * SEMESTRUL 1
   - [Testare sistemelor software](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%202%20SEM%201/TSS)
-  - [Managementul echipelor de dezvoltare software]()
+  - Managementul echipelor de dezvoltare software
   - [Topici speciale in inginerie software 1](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%202%20SEM%201/TS1)
   - [Optional: Cloud Computing](https://github.com/DimaOanaTeodora/Uni-Work-2022-2024/tree/main/AN%202%20SEM%201/CC)
   - Practica industriala
