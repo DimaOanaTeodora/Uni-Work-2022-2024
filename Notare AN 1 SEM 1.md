@@ -20,9 +20,3 @@
     - 50% nota proiect lab
     - nota examen + nota proiect lab >=5
   - Practica industriala
-* SEMESTRUL 2
-  - [Tehnici avansate de programare ()]()
-  - [Arhitectura sistemelor software ()]()
-  - [Experienta de utilizare si interactiunea cu utilizatorul - UX/UI ()]()
-  - [Aplicatii web pentru baze de date ()]()
-  - Practica industriala
